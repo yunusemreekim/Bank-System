@@ -28,19 +28,24 @@ src
  └── com
       └── yunusemre
            └── banksystem
-                ├── Main.java              # Entry Point
+                │
+                ├── Main.java                # Application Entry Point
+                │
                 ├── service
-                │    └── BankManager.java  # Business Logic
-                └── model                  # Data Classes
-                     ├── User.java
-                     ├── Admin.java
-                     ├── BankAccount.java
-                     └── ...
+                │    └── BankManager.java    # Business Logic & Menu Management
+                │
+                └── model                    # Data & Object Models
+                     ├── Person.java         # Abstract Base Class (User/Admin)
+                     ├── User.java           # User Implementation
+                     ├── Admin.java          # Admin Implementation
+                     ├── BankAccount.java    # Abstract Base Class (Accounts)
+                     ├── CheckingAccount.java# Account with Overdraft Limit
+                     └── SavingsAccount.java # Standard Savings Account
 test
  └── com
       └── yunusemre
            └── banksystem
-                └── BankSystemTest.java    # JUnit Tests
+                └── BankSystemTest.java      # JUnit Unit Tests
 ```                
 ## 🧪 Testing & Quality Assurance
 This project includes Unit Tests to ensure the reliability of
@@ -100,7 +105,7 @@ void testSavingsOverdraftFailure() {
 
 * [ ] Implement **File I/O** or **Database (JDBC)** to persist user data after exit.
 * [ ] Add a money transfer feature between users.
-* [ ] Implement a graphical user interface (GUI) with JavaFX.
+* [ ] Implement a graphical user interface.
 
 ---
 ## Author

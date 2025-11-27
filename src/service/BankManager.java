@@ -5,16 +5,16 @@ import model.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Random; // Rastgele hesap no için eklendi
+import java.util.Random;
 import java.util.Scanner;
 
 public class BankManager {
-    // Değişkenler sınıfın alanları (fields) olarak kalır
+
     private List<User> userList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private Admin admin = new Admin("ADM-001", "admin", "admin123");
 
-    // TÜM MANTIK BU METODUN İÇİNE TAŞINDI
+
     public void run() {
         while (true) {
             System.out.println("\n------ BANK SYSTEM ------");
@@ -25,31 +25,31 @@ public class BankManager {
 
             try {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Buffer temizleme
+                scanner.nextLine();
 
                 switch (choice) {
-                    case 1: // ADMIN LOGIN
+                    case 1:
                         handleAdminLogin();
                         break;
 
-                    case 2: // USER LOGIN
+                    case 2:
                         handleUserLogin();
                         break;
 
                     case 0:
                         System.out.println("Exiting system. Goodbye!");
-                        return; // Metottan çıkar, program biter.
+                        return;
                     default:
                         System.out.println("Invalid option.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("ERROR: Invalid input! Please enter a number");
-                scanner.nextLine(); // Hatalı girdiyi temizle
+                scanner.nextLine();
             }
         }
     }
 
-    // Kodun okunabilirliği için model.Admin işlemlerini ayrı metoda böldüm
+
     private void handleAdminLogin() {
         System.out.print("Username: ");
         String username = scanner.nextLine();
@@ -120,7 +120,7 @@ public class BankManager {
         }
     }
 
-    // model.User işlemlerini de ayrı metoda böldüm (Temiz Kod Prensibi)
+
     private void handleUserLogin() {
         System.out.print("Username: ");
         String usernameI = scanner.nextLine();
@@ -158,7 +158,7 @@ public class BankManager {
                             System.out.println("2. Add Savings Account");
                             String accType = scanner.nextLine();
 
-                            // Rastgele hesap numarası üretimi
+
                             String randomAccNo = "TR-" + (1000 + new Random().nextInt(9000));
 
                             if (accType.equals("1")) {
@@ -178,7 +178,7 @@ public class BankManager {
                             }
                             break;
 
-                        case 3: // Deposit
+                        case 3:
                             if (foundUser.getAccounts().isEmpty()) {
                                 System.out.println("No accounts found.");
                                 break;
@@ -195,7 +195,7 @@ public class BankManager {
                             }
                             break;
 
-                        case 4: // Withdraw
+                        case 4:
                             if (foundUser.getAccounts().isEmpty()) {
                                 System.out.println("No accounts found.");
                                 break;

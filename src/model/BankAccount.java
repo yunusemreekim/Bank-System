@@ -1,3 +1,5 @@
+package model;
+
 public abstract class BankAccount {
     protected String accountNumber;
     protected double balance;
@@ -8,10 +10,10 @@ public abstract class BankAccount {
 
     public String getAccountNumber(){return accountNumber;}
     public double getBalance(){return balance;}
-    void deposit(double amount){
+    public void deposit(double amount){
         balance=balance+amount;
     }
-    abstract void withdraw(double amount);
+    public abstract void withdraw(double amount);
 
 
 }

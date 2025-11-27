@@ -1,3 +1,7 @@
+package service;
+
+import model.*;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -14,8 +18,8 @@ public class BankManager {
     public void run() {
         while (true) {
             System.out.println("\n------ BANK SYSTEM ------");
-            System.out.println("1. Admin Login");
-            System.out.println("2. User Login");
+            System.out.println("1. model.Admin Login");
+            System.out.println("2. model.User Login");
             System.out.println("0. Exit");
             System.out.print("Choose an option between 0-2: ");
 
@@ -45,7 +49,7 @@ public class BankManager {
         }
     }
 
-    // Kodun okunabilirliği için Admin işlemlerini ayrı metoda böldüm
+    // Kodun okunabilirliği için model.Admin işlemlerini ayrı metoda böldüm
     private void handleAdminLogin() {
         System.out.print("Username: ");
         String username = scanner.nextLine();
@@ -56,10 +60,10 @@ public class BankManager {
             boolean adminSession = true;
             while (adminSession) {
                 System.out.println("\n--- ADMIN MENU ---");
-                System.out.println("1. Create User");
-                System.out.println("2. Display User Report");
+                System.out.println("1. Create model.User");
+                System.out.println("2. Display model.User Report");
                 System.out.println("3. Show Role");
-                System.out.println("4. Print User List");
+                System.out.println("4. Print model.User List");
                 System.out.println("0. Back");
                 System.out.print("Choose an option: ");
 
@@ -69,17 +73,17 @@ public class BankManager {
 
                     switch (choice_admin) {
                         case 1:
-                            System.out.print("User's name: ");
+                            System.out.print("model.User's name: ");
                             String uName = scanner.nextLine();
-                            System.out.print("User's password: ");
+                            System.out.print("model.User's password: ");
                             String uPass = scanner.nextLine();
-                            System.out.print("User's ID: ");
+                            System.out.print("model.User's ID: ");
                             String uId = scanner.nextLine();
                             userList.add(new User(uName, uId, uPass));
-                            System.out.println("User created successfully!");
+                            System.out.println("model.User created successfully!");
                             break;
                         case 2:
-                            System.out.print("Enter User ID to report: ");
+                            System.out.print("Enter model.User ID to report: ");
                             String idInput = scanner.nextLine();
                             boolean found = false;
                             for (User u : userList) {
@@ -89,7 +93,7 @@ public class BankManager {
                                     break;
                                 }
                             }
-                            if (!found) System.out.println("User not found!");
+                            if (!found) System.out.println("model.User not found!");
                             break;
                         case 3:
                             admin.showRole();
@@ -112,11 +116,11 @@ public class BankManager {
                 }
             }
         } else {
-            System.out.println("Wrong Admin credentials!");
+            System.out.println("Wrong model.Admin credentials!");
         }
     }
 
-    // User işlemlerini de ayrı metoda böldüm (Temiz Kod Prensibi)
+    // model.User işlemlerini de ayrı metoda böldüm (Temiz Kod Prensibi)
     private void handleUserLogin() {
         System.out.print("Username: ");
         String usernameI = scanner.nextLine();

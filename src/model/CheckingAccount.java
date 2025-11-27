@@ -1,6 +1,8 @@
-public class CheckingAccount extends BankAccount{
+package model;
+
+public class CheckingAccount extends BankAccount {
     double overdraftLimit=500.0;
-    CheckingAccount(String accountNumber,double balance){
+    public CheckingAccount(String accountNumber,double balance){
         super(accountNumber,balance);
     }
 
@@ -8,7 +10,7 @@ public class CheckingAccount extends BankAccount{
     public void withdraw(double amount){
         if(balance+overdraftLimit>=amount){
             balance=balance-amount;
-            System.out.println("İşlem başarılı. Yeni bakiye: "+balance+"₺");
+            System.out.println("Transaction successful. New balance: "+balance+"₺");
         }else {
             throw new IllegalArgumentException("Transaction declined! (Overdraft limit exceeded)");
         }

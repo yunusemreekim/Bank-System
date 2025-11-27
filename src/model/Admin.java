@@ -1,4 +1,6 @@
-public class Admin extends Person{
+package model;
+
+public class Admin extends Person {
     public Admin(String id,String name,String password){
         super(name, id,password);
     }

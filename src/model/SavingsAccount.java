@@ -1,4 +1,6 @@
-public class SavingsAccount extends BankAccount{
+package model;
+
+public class SavingsAccount extends BankAccount {
 
     public SavingsAccount(String accountNumber,double balance){
         super(accountNumber,balance);
@@ -8,9 +10,9 @@ public class SavingsAccount extends BankAccount{
     public void withdraw(double amount){
         if(balance>=amount){
             balance=balance-amount;
-            System.out.println("İşlem başarılı. Yeni bakiye: "+balance+"₺");
+            System.out.println("Transaction successful. New balance: "+balance+"₺");
         }else{
-            throw new IllegalArgumentException("Insufficient funds! (Savings accounts do not allow overdrafts)");
+            throw new IllegalArgumentException("Insufficient funds");
         }
     }
     @Override
